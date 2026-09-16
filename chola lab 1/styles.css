@@ -1,0 +1,279 @@
+/* ---------------------------------------------
+   Tokens
+--------------------------------------------- */
+
+:root {
+    --ink: #1c2321;
+    --ink-soft: #4a5450;
+    --paper: #f2f0e9;
+    --paper-raised: #fbfaf6;
+    --ledger: #1e3a2f;
+    --mu-background: #26249c;
+    /* deep academic green */
+    --ledger-light: #2f5741;
+    --gold: #b8862e;
+    /* muted gold, used sparingly */
+    --line: #d5d0c1;
+    --danger: #a33a2b;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: white;
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+
+/* ---------------------------------------------
+   Header / "letterhead"
+--------------------------------------------- */
+
+.site-header {
+    background: var(--mu-background);
+    color: var(--paper-raised);
+    padding: 2.75rem 1.5rem 2.25rem;
+    border-bottom: 3px solid var(--gold);
+}
+
+.header-inner {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    margin: 0 0 0.6rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: #c9d6cd;
+}
+
+#welcomeMsg {
+    margin: 0;
+    font-family: "arial";
+    font-weight: 500;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    line-height: 1.2;
+}
+
+#welcomeMsg .student-id {
+    color: var(--gold);
+}
+
+.header-sub {
+    margin: 0.75rem 0 0;
+    color: #d8ddd8;
+    font-size: 0.98rem;
+    max-width: 46ch;
+}
+
+
+/* ---------------------------------------------
+   Layout
+--------------------------------------------- */
+
+main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+}
+
+
+/* ---------------------------------------------
+   Form sections
+--------------------------------------------- */
+
+.form-section {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper-raised);
+    padding: 1.5rem 1.5rem 1.75rem;
+    margin: 0 0 1.75rem;
+}
+
+.form-section legend {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 0 0.4rem;
+    color: var(--ledger);
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.92rem;
+    margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid #b9b3a1;
+    border-radius: 3px;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: 2px solid var(--ledger-light);
+    outline-offset: 1px;
+    border-color: var(--ledger-light);
+}
+
+input.invalid,
+select.invalid {
+    border-color: var(--danger);
+}
+
+.field-hint {
+    margin: 0.35rem 0 0;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+}
+
+.error-msg {
+    margin: 0.35rem 0 0;
+    font-size: 0.85rem;
+    color: var(--danger);
+    min-height: 1.1em;
+}
+
+
+/* ---------------------------------------------
+   Course list
+--------------------------------------------- */
+
+.course-list {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+}
+
+.course-option {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.course-option:has(input:checked) {
+    border-color: var(--ledger-light);
+    background: #eef3ee;
+}
+
+.course-option input[type="checkbox"] {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--ledger);
+}
+
+.course-code {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: var(--ledger);
+    font-size: 0.92rem;
+}
+
+.course-name {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+}
+
+
+/* ---------------------------------------------
+   Actions / status
+--------------------------------------------- */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button[type="submit"] {
+    background: var(--mu-background);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+button[type="submit"]:hover {
+    background: var(--ledger-light);
+}
+
+button[type="submit"]:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.form-status {
+    margin-top: 1.1rem;
+    font-size: 0.95rem;
+    min-height: 1.2em;
+}
+
+.form-status.success {
+    color: var(--ledger);
+    font-weight: 500;
+}
+
+.form-status.error {
+    color: var(--danger);
+    font-weight: 500;
+}
+
+
+/* ---------------------------------------------
+   Footer
+--------------------------------------------- */
+
+.site-footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+}
+
+
+/* ---------------------------------------------
+   Reduced motion
+--------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

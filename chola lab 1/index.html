@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration — ICT461</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <p class="eyebrow">ICT461 · Web Systems</p>
+            <h1 id="welcomeMsg">MULUNGUSHI COURSE REGISTRATION</h1>
+            <p id="welcomeSub" class="header-sub">Fill in the form below to register for your courses this semester.</p>
+        </div>
+    </header>
+
+    <main>
+        <form id="registrationForm" novalidate>
+
+            <fieldset class="form-section">
+                <legend>Your details</legend>
+
+                <div class="field">
+                    <label for="studentName">Full name</label>
+                    <input type="text" id="studentName" name="studentName" placeholder="e.g. Gift Chitalu" autocomplete="name" required>
+                    <p class="error-msg" id="studentNameError" aria-live="polite"></p>
+                </div>
+
+                <div class="field">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="e.g. 20231234" inputmode="numeric" pattern="\d{6,10}" autocomplete="off" required>
+                    <p class="field-hint">6 to 10 digits, numbers only.</p>
+                    <p class="error-msg" id="studentIdError" aria-live="polite"></p>
+                </div>
+
+                <div class="field">
+                    <label for="programme">Programme</label>
+                    <select id="programme" name="programme" required>
+            <option value="" disabled selected>Select your programme</option>
+            <option value="bsc-cs">BSc Computer Science</option>
+            <option value="bsc-is">BSc Information Systems</option>
+            <option value="bsc-se">BSc Software Engineering</option>
+            <option value="bsc-nets">BSc Networks &amp; Security</option>
+            <option value="bsc-datasci">BSc Data Science</option>
+          </select>
+                    <p class="error-msg" id="programmeError" aria-live="polite"></p>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Choose your courses</legend>
+                <p class="field-hint">Select at least one course to register for.</p>
+
+                <div class="course-list" id="courseList">
+                    <label class="course-option">
+            <input type="checkbox" name="courses" value="ICT461">
+            <span class="course-code">ICT461</span>
+            <span class="course-name">Web Systems</span>
+          </label>
+
+                    <label class="course-option">
+            <input type="checkbox" name="courses" value="ICT415">
+            <span class="course-code">ICT415</span>
+            <span class="course-name">Database Systems II</span>
+          </label>
+
+                    <label class="course-option">
+            <input type="checkbox" name="courses" value="ICT422">
+            <span class="course-code">ICT422</span>
+            <span class="course-name">Software Engineering</span>
+          </label>
+
+                    <label class="course-option">
+            <input type="checkbox" name="courses" value="ICT430">
+            <span class="course-code">ICT430</span>
+            <span class="course-name">Computer Networks</span>
+          </label>
+
+                    <label class="course-option">
+            <input type="checkbox" name="courses" value="ICT445">
+            <span class="course-code">ICT445</span>
+            <span class="course-name">Human-Computer Interaction</span>
+          </label>
+
+                    <label class="course-option">
+            <input type="checkbox" name="courses" value="ICT450">
+            <span class="course-code">ICT450</span>
+            <span class="course-name">Cloud Computing</span>
+          </label>
+                </div>
+                <p class="error-msg" id="coursesError" aria-live="polite"></p>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit">Register</button>
+            </div>
+
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <p>Validated in your browser for a quick check — the server checks everything again before saving it.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
